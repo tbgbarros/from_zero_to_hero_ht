@@ -12,6 +12,12 @@ class ProductRepositoryImpl implements ProductRepository {
   ProductRepositoryImpl({required this.dio});
 
   @override
+  Future<List<String>> findAll() async {
+    final response = await dio.get('/categories');
+    return [for (final category in response.data as List) category.toString()];
+  }
+
+  @override
   Future<List<String>> findAllCategories() async {
     final response = await dio.get('/categories');
     return [for (final category in response.data as List) category.toString()];

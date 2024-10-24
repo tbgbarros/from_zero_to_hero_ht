@@ -38,10 +38,7 @@ class CategoryCard extends StatelessWidget {
       {super.key, required this.category, required this.indexColor});
 
   final int indexColor;
-
-  final String category;
-
-  // final MaterialColor color;
+  final String category; // Verifique o formato da categoria
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,6 @@ class CategoryCard extends StatelessWidget {
       child: InkWell(
         splashColor: color.shade900,
         onTap: () {
-          //TODO: Navegar para a página de produtos
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -66,44 +62,7 @@ class CategoryCard extends StatelessWidget {
           height: 150,
           child: Stack(
             children: [
-              Align(
-                alignment: const Alignment(0.5, -1.5),
-                child: Container(
-                  width: 120,
-                  height: 90,
-                  decoration: BoxDecoration(
-                    color: color.shade300,
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: -20,
-                right: -20,
-                child: Container(
-                  width: 120,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: color.shade800,
-                    borderRadius: BorderRadius.circular(60),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: -20,
-                left: -20,
-                child: Transform.rotate(
-                  angle: pi / 4,
-                  child: Container(
-                    width: 120,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: color.shade900,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-              ),
+              // Elementos de fundo que você deseja manter
               Align(
                 alignment: Alignment.center,
                 child: Container(
@@ -113,7 +72,7 @@ class CategoryCard extends StatelessWidget {
                     color: Colors.white60,
                   ),
                   child: Text(
-                    category.replaceAll('-', ' ').toUpperCase(),
+                    category.replaceAll('-', ' ').toUpperCase(), // Ajuste aqui
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
